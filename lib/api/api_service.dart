@@ -1,4 +1,5 @@
 import 'package:country_app/model/country.dart';
+import 'package:country_app/model/detail.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
 import 'package:dio/dio.dart';
@@ -10,4 +11,7 @@ abstract class ApiService {
   @GET('all')
   //future နဲ့ပဲေရးရတာ asynchronous way
   Future<List<Country>> getCountries();
+
+  @GET('name/{name}?fullText=true')
+  Future<List<Detail>> getDetail(@Path() String name);
 }
